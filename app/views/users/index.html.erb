@@ -1,0 +1,24 @@
+<h1 id="list_users" class="display-4 text-center my-5 text-muted">List of Users</h1>
+<div class="d-flex justify-content-center">
+  <%= link_to 'New User', new_user_path, class:"btn btn-outline-success" %>
+</div>
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class=" table justify-content-sm-center">
+      <thead class="table-light">
+        <tr>
+          <th>id</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
