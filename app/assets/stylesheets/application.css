@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.pages_index_background {
+  background-color: rgb(127, 229, 255);
+}
