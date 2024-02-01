@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @room %>
+
+<div>
+  <%= link_to "Edit room", edit_room_path(@room), class: "btn btn-outline-success" %> |
+  <%= link_to "Back to rooms", rooms_path, class: "btn btn-outline-primary" %>
+
+  <%= button_to "Delete room", @room, method: :delete, class: "btn btn-outline-danger" %>
+</div>

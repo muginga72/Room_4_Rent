@@ -1,0 +1,55 @@
+<p style="color: green"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <h1 id="rooms" class="display-4 text-center my-5 text-muted">Available Rooms</h1>
+      <div class="">
+        <div class="row">
+          <% if @rooms.any? %>
+            <% @rooms.each do |room| %>
+              <div class="col-sm-6 col-md-6 d-flex align-items-stretch" style="margin-left: 0px; margin-bottom: 30px">
+                <div class="card">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-title">Room Info</h6>
+                      <ul class="list-inline">
+                        <li>
+                          <strong>Size</strong>: <%= room.room_size %>     |
+                          <strong>Class</strong>: <%= room.room_class %>    |
+                          <strong>Pice</strong>: $<%= room.room_price %>    |
+                          <strong>Status</strong>: <%= room.room_status %>     |
+                          <strong>Number of Beds</strong>: <%= room.number_of_beds %>     |
+                          <strong>Bed Size</strong>: <%= room.bed_size %>     |
+                          <strong>Smoke</strong>: <%= room.room_smoke %>
+                        </li>
+                      </ul>
+                      <address>
+                        <h6>Address</h6>
+                        <%= room.room_address %>, <%= room.room_city %>,<br> 
+                        <%= room.room_state %>, <%= room.room_zip %>, <%= room.room_country %><br>
+                      </address>
+
+                      <h6 class="card-title">Description </h6>
+                      <blockquote>
+                        <p><%= room.room_description %></p>
+                      </blockquote>
+                    </div>
+                    <div class="card-footer">
+                      <p>
+                        <%= link_to "Show room", room, class: "btn btn-outline-primary" %> 
+                        <%= link_to "Book room", room, class: "btn btn-outline-success" %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+                <p class="btn btn-primary" style="margin: 40px"> No rooms available</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%= link_to "New room", new_room_path, class: "btn btn-success m-4" %>
+</div>

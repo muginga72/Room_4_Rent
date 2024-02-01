@@ -13,7 +13,66 @@
  *= require_tree .
  *= require_self
  */
+ @import "font-awesome";
 
+@font-face {
+  font-family: 'Canterbury';
+  src: url('Canterbury.ttf');
+}
+
+.banner-background-image {
+  color: white;
+  background-image: url("Dubai-wallpaper-cr.jpg");
+  background-size: cover;
+  font-family: 'Canterbury';
+} 
+
+.banner-background-buttons {
+  background-size: cover;
+  font-family: 'inherit';
+}
+
+.card-background {
+  background-color: #b7e1e7;
+}
+
+.navbar-background {
+  background-color: #33b5c9;
+}
+
+.card-background-bbb {
+  background-color:  #a4badb;
+}
+
+.bedroom-1 {
+  background-image: url("Screenshot_2023-12-13_202053.png");
+}
+
+.card-border {
+  border: gray;
+  border-radius: 5px;
+}
+
+.form-input {
+  display: inline-flex;
+  margin-inline:10px
+}
+
+input::placeholder {
+  color: gray;
+  font-style: italic;
+}
+
+.footer {
+  background-color: gray;
+  height: 80px;
+}
+
+.message-form {
+  /*padding: 0px;*/
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 .pages_index_background {
   background-color: rgb(127, 229, 255);

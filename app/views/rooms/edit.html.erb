@@ -1,0 +1,10 @@
+<h1 id="editing_room" class="display-3 text-center my-5 text-muted">Editing room</h1>
+
+<%= render "form", room: @room %>
+
+<br>
+
+<div>
+  <%= link_to "Show", @room, class: "btn btn-outline-info"  %> |
+  <%= link_to "Back", rooms_path, class: "btn btn-outline-primary"  %>
+</div>

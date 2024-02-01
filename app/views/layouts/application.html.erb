@@ -21,6 +21,158 @@
       </div>
     <% end %>
 
+    <nav class="navbar navbar-info bg-info fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#"><strong>R4R</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-info" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">R4R offcanvas</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Room
+                </a>
+                <ul class="dropdown-menu dropdown-menu-light">
+                  <li><a class="dropdown-item" href="#">List rooms</a></li>
+                  <li><a class="dropdown-item" href="#new_room_path">Create Room</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Book Room</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Booking
+                </a>
+                <ul class="dropdown-menu dropdown-menu-light">
+                  <li><a class="dropdown-item" href="#">List Booking</a></li>
+                  <li><a class="dropdown-item" href="#">Create Booking</a></li>
+                  <li>
+                  <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Book room</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- banner component -->
+    <section class="bsb-hero-5 px-3 bsb-overlay banner-background-image">
+      <div class="container-fluid">
+        <div class="row justify-content-md-center align-items-center">
+          <div class="col-12 col-md-11 col-lg-9 col-xl-8 col-xxl-7">
+            <h2 class="display-1 text-white text-center fw-bold mt-5" style="color: #3949AB">
+              Welcome to R4R!
+            </h2>
+            <p class="lead text-white text-center mb-5 d-flex justify-content-sm-center">
+              <span class="col-12 col-sm-10 col-md-8 col-xxl-7">Find your perfect room, make it your own!</span>
+            </p>
+            
+            <div style="display: flex; gap: 10px;" class="justify-content-sm-center">
+              <div class="d-grid gap-2 d-sm-flex">
+                <button type="button" class="btn bsb-btn-2xl btn-success mb-4">Book Your Room</button>
+              </div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <button type="button" class="btn bsb-btn-2xl btn-success mb-4">Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <%= yield %>
   </body>
+
+  <!-- footer-->
+  <footer class="bg-light text-lg-start" style="background-color: gray;">
+    <div class="container p-2">
+      <div class="row">
+        <div id="messages">
+          <h3 id="orders" class="display-6 text-center my-3 text-muted">Contact Us</h3>
+          <ul>
+            <!-- inserted <li id="messages"> tag with JavaScript -->
+          </ul>
+        </div>
+        
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <form class="row g-3" name="leave_message">
+            <div class="col-md-6">
+              <label for="inputName" required="true" class="form-label">Name</label>
+                <input type="name" class="form-control" id="name">
+            </div>
+            <div class="col-md-6 message-form">
+              <label for="inputEmail" class="form-label" required="true">Email</label>
+              <input type="email" class="form-control" id="inputEmail">
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label" required="true">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+              </div>
+        
+              <div class="col-12">
+                <button id="submitButton" type="submit" class="btn btn-outline-primary">Submit</button>
+              </div>
+          </form>
+        </div>
+
+        </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+            <h5 class="text-uppercase">Links</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="link link--no--color" href="https://www.linkedin.com/in/eli-james-47626921b/" target="_blank" title="linkedIn">
+                <i class="fa fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 3</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+            <h5 class="text-uppercase mb-0">Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a class="link link--no--color" href="mailto:mg.elijames@gmail.com" target="_blank" title="gmail">
+                <i class="fa fa-google"></i></a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-dark">Link 3</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3">
+        <p id="copyright" class="mb-2">© 2024 Muginga, Laurindo </p>
+      </div>
+    </div>
+  </footer> <!-- footer-->
+
 </html>
