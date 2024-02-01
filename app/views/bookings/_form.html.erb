@@ -13,12 +13,12 @@
 
   <form>
     <div class="form-group">
-
+   
       <div class="field">
         <%= form.label :room_address %> <br>
         <%= form.collection_select :room_id, Room.all, :id, :room_address %> <br>
       </div>
-
+   
       <div>
         <%= form.label :check_in, style: "display: block" %>
         <%= form.date_field :check_in %>

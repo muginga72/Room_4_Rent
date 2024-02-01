@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
   resources :bookings
   resources :rooms
-  # get 'pages/index'
-  # get 'pages/secret'
-  # get 'user_sessions/new'
-  # get 'user_sessions/create'
-  # get 'users/index'
-  # get 'users/new'
-  # get 'users/create'
+
+  # get "bookings/:room/new", to: "booking#new_booking"
 
   root 'pages#index'
   get 'pages/secret'
