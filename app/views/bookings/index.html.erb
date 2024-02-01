@@ -1,0 +1,47 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 id="list_bookings" class="display-4 text-center my-3 text-muted">Bookings</h1>
+<!--
+<div id="bookings">
+  <% @bookings.each do |booking| %>
+    <%= render booking %>
+    <p>
+      <%= link_to "Show booking", booking, class: "btn btn-outline-primary" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New booking", new_booking_path, class: "btn btn-outline-success" %> -->
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg table-responsive">
+      <table class="table ml-2">
+        <thead>
+          <tr class="table-active">
+            <th>Room Address</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <%# <th>Number of nights</th> %>
+            <th>Guest Name</th>
+            <%# <th>Picture</th> %>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookings.each do |booking| %> <!-- Loop through the bookings -->
+            <tr>
+              <%# <td><%= icon("fa-regular", "user") %></td>
+              <td><%= `${room_address}` %></td>
+              <td><%= booking.check_in %></td> 
+              <td><%= booking.check_out %></td>
+              <td><%= booking.guest_name %></td>
+              <td><%= button_to 'Show', booking, method: :get, class: 'btn btn-outline-primary' %></td>
+              <td><%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-outline-primary' %></td>
+            <% end %>
+        </tbody>
+      </table>
+      <%= link_to "New booking", new_booking_path, class: "btn btn-outline-success mb-3" %>
+    </div>
+  </div>
+</div>

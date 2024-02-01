@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   resources :rooms
   # get 'pages/index'
   # get 'pages/secret'
