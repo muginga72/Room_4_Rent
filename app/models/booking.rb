@@ -3,6 +3,10 @@ class Booking < ApplicationRecord
   belongs_to :room
 
   # define the rooms method for the Booking object
+  def status
+    room.room_status
+  end
+
   def city
     room.room_city
   end

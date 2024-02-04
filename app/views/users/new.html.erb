@@ -1,28 +1,32 @@
-<h1 id="new_user" class="display-4 text-center my-5 text-muted">New User</h1>
-
-<%= form_with model: @user do |f| %>
-  <% if @user.errors.any? %>
-    <div>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+<div id="new_user" class="pages_index_background">
+  <h1 class="display-2 text-center my-0">Welcome to Room 4 Rent App!</h1>
+  <h1 id="new_user" class="display-5 text-center my-0 text-muted">You're New User</h1>
+  <div class="container">
+    <%= form_with model: @user do |f| %>
+      <% if @user.errors.any? %>
+        <div>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <p>
+        <%= f.submit class: "btn btn-outline-success m-4"%>
+      </p>
+    <% end %>
   </div>
-  <div>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <p>
-    <%= f.submit class: "btn btn-outline-success mt-3"%>
-  </p>
-<% end %>
+</div>

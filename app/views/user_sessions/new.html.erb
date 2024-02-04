@@ -1,18 +1,19 @@
 <div id="user_session" class="pages_index_background">
-  <h1 id="list_users" class="display-4 text-center my-0 text-muted">Login page</h1>
+  <h1 class="display-2 text-center my-0">Welcome to Room 4 Rent App!</h1>
+  <h1 id="list_users" class="display-5 text-center my-0 text-muted">Login please!</h1>
   <div class="container">
-  <%= form_with model: @user, url: user_sessions_path do |f| %>
-    <div>
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
-    </div>
-    <div>
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
-    <p>
-      <%= f.submit 'Login', class: "btn btn-outline-success m-4" %>
-    </p>
-  <% end %>
+    <%= form_with model: @user, url: user_sessions_path do |f| %>
+      <div>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </div>
+      <p>
+        <%= f.submit 'Login', class: "btn btn-outline-success m-4" %>
+      </p>
+    <% end %>
   </div>
 </div>
