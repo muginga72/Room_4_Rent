@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+  # pages can manage the users model
+  resources :pages do 
+    resources :users
+  end
+
+  get '/signup', to: 'users#new', as: 'signup'
+
   resources :bookings
   resources :rooms
 
   # get "bookings/:room/new", to: "booking#new_booking"
 
   root 'pages#index'
+
   get 'pages/secret'
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :users, only: [:index, :new, :create]

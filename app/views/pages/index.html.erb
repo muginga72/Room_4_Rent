@@ -1,6 +1,5 @@
 <div id="pages_index" class="pages_index_background">
   <div class="container">
-    <h1 id="list_users" class="display-4 text-center text-muted">R4R Index Pages</h1>
 
     <% if current_user %>
       <h1>Welcome, <%= current_user.email %>!</h1>
@@ -10,16 +9,29 @@
 
     <% else %>
     
-      <h1>If you have an account login, please!</h1>
-
-      <div class="d-flex justify-content-center">
-        <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-success mt-4" %><br>
+      <div>
+        <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-primary mt-5 mb-5" %> <%= link_to "Sign up", signup_path, class: "btn btn-outline-success mt-5 mb-5" %><br>
       </div>
-
+  
     <% end %>
-
-    <div class="d-flex justify-content-center">
-      <%= link_to 'Secret page', '/pages/secret', class: "btn btn-outline-primary m-4" %>
-    </div>
   </div>
 </div>
+<!--
+<%= form_for User.new do |f| %>
+  
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <p>
+    <%= f.submit class: "btn btn-outline-success mt-3"%>
+  </p>
+<% end %> -->

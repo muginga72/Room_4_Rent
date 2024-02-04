@@ -69,3 +69,9 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'font-awesome-sass'
+
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'rails-controller-testing'
+gem 'rexml'
