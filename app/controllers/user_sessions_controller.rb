@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id # store the user's id in the session
-      redirect_to root_path, notice: "Logged in!"
+      redirect_to rooms_path, notice: "Logged in!"
     else
       flash[:alert] = "Login failed"
       redirect_to new_user_session_path

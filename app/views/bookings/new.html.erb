@@ -1,9 +1,14 @@
-<h1 id="new_booking" class="display-4 text-center my-3 text-muted">New Booking</h1>
+<div id="new_booking" class="pages_index_background">
+  <h1 class="display-4 text-center text-muted">New Booking</h1>
 
-<%= render "form", booking: @booking %>
+  <div class="container">
+    <!-- to render booked room pass also room instance -->
+    <%= render "form", booking: @booking, room: @room %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to bookings", bookings_path, class: "btn btn-outline-primary" %>
+    <div>
+      <%= link_to "Back to bookings", bookings_path, class: "btn btn-outline-primary mb-4" %>
+    </div>
+  </div>
 </div>

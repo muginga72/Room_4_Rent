@@ -2,6 +2,10 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
+  validates :user_id, :room_id, :check_in, :check_out, :guest_name, presence: true
+
+  validate :room_availability
+
   # define the rooms method for the Booking object
   def status
     room.room_status
@@ -17,5 +21,19 @@ class Booking < ApplicationRecord
 
   def guest_picture
 
+  end
+
+  private
+
+  def room_availability
+    # check if the room is available for the given time range
+    overlapping_bookings = Booking.where(room_id: room_id).where.not(id: id).where(
+    '(? <= check_out) AND (check_in <= ?)', check_in, check_out
+    )
+
+    # If there are any overlapping reservations, add an error
+    if overlapping_bookings.any?
+      errors.add(:base, "The room is not available for the selected dates.")
+    end
   end
 end

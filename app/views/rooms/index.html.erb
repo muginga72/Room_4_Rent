@@ -1,5 +1,4 @@
         <!-- navbar for login page-->
-
         <nav class="navbar navbar-info bg-info fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#"><strong>R4R</strong></a>
@@ -15,6 +14,7 @@
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <%= link_to 'Logout', user_session_path(current_user), data: { turbo_method: :delete }, class: "dropdown-item" %><br>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -57,8 +57,7 @@
         </div>
       </nav> <!-- /navbar for login page-->
 
-          <!-- banner component -->
-    
+    <!-- banner component --> 
     <section class="bsb-hero-5 px-3 bsb-overlay banner-background-image">
       <div class="container-fluid">
         <div class="row justify-content-md-center align-items-center">
@@ -69,15 +68,6 @@
             <p class="lead text-white text-center mb-5 d-flex justify-content-sm-center">
               <span class="col-12 col-sm-10 col-md-8 col-xxl-7">Find your perfect room, make it your own!</span>
             </p>
-            <!--
-            <div style="display: flex; gap: 10px;" class="justify-content-sm-center">
-              <div class="d-grid gap-2 d-sm-flex">
-                <%= link_to "Book Your Room", new_booking_path, class: "btn bsb-btn-2xl btn-success mb-4" %>
-              </div>
-              <%# <div class="d-grid gap-2 d-sm-flex"> %>
-              <div>
-                <button type="button" class="btn bsb-btn-2xl btn-success mb-4">Logout</button>
-              </div> -->
             </div>
           </div>
         </div>
@@ -88,7 +78,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
-      <h1 id="rooms" class="display-4 text-center my-5 text-muted">Available Rooms</h1>
+      <h1 id="available" class="display-4 text-center my-5 text-muted">Available Rooms</h1>
       <div class="">
         <div class="row">
           <% if @rooms.any? %>
@@ -123,14 +113,16 @@
                     <div class="card-footer">
                       <p>
                         <%= link_to "Show room", room, class: "btn btn-outline-primary" %> 
-                        <%= link_to "Book room", new_booking_path, class: "btn btn-outline-success" %>
+                        
+                        <!-- this link to allows user to create a booking from the cards -->
+                        <%= link_to "Book room", new_room_booking_path(room), class: "btn btn-outline-success" %>
                       </p>
                     </div>
                   </div>
                 </div>
               <% end %>
             <% else %>
-                <p class="btn btn-primary" style="margin: 40px"> No rooms available</p>
+              <p class="btn btn-primary" style="margin: 40px"> No rooms available</p>
           <% end %>
         </div>
       </div>
@@ -144,12 +136,6 @@
       </div>
     </div>
   </div>
-
-  <%= link_to "New room", new_room_path, class: "btn btn-success m-4" %>
-
-
-
-
 </div>
 
 <div class="container-fluid">
