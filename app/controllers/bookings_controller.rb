@@ -10,12 +10,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1 or /bookings/1.json
   def show
-    # Check if the current user is the guest or the host of the booking
-    if current_user == @booking.guest_name || current_user == @booking.room
 
-      # Render the booking details
-      render :show
-    end
   end
 
   # GET /bookings/new
@@ -93,8 +88,7 @@ class BookingsController < ApplicationController
       params.require(:booking).permit( 
         :room_id, 
         :check_in, 
-        :check_out, 
-        :guest_name
+        :check_out
       )
     end
 

@@ -29,11 +29,6 @@
       <%= form.label :check_out, style: "display: block" %>
       <%= form.date_field :check_out %>
     </div>
-
-    <div>
-      <%= form.label :guest_name, style: "display: block" %>
-      <%= form.text_field :guest_name %>
-    </div>
       
     <!-- creating hidden value for room id -->
     <%= form.hidden_field(:room_id, value: room.id) %>

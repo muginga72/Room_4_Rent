@@ -3,7 +3,7 @@ class CreateRooms < ActiveRecord::Migration[7.1]
     create_table :rooms do |t|
       t.string :room_size
       t.string :room_class
-      t.string :room_status
+      t.string :room_status, default: "available"
       t.string :room_address
       t.string :room_city
       t.string :room_state

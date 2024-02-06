@@ -13,7 +13,7 @@ FactoryBot.define do
     room_smoke { Faker::Boolean.boolean }
     number_of_beds { Faker::Number.between(from: 1, to: 4) }
     bed_size { ["Single", "Double", "Queen", "King"].sample }
-    
+
     association :user
   end
 end

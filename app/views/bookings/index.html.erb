@@ -87,8 +87,8 @@
             <th>Check In</th>
             <th>Check Out</th>
             <%# <th>Night(s)</th> %>
-            <th>Guest Name</th>
-            <th>Picture</th>
+            <%# <th>Name</th>
+            <th>Picture</th> %>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -100,8 +100,6 @@
               <td><%= booking.city  %></td> <!-- city method allow the booking to access the room_city -->
               <td><%= booking.check_in %></td> 
               <td><%= booking.check_out %></td>
-              <td><%= booking.guest_name %></td>
-              <td><%= booking.guest_picture %></td>
               <td><%= button_to 'Show', booking, method: :get, class: 'btn btn-outline-primary' %></td>
               <td><%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-outline-success' %></td>
             <% end %>
@@ -114,7 +112,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <%# <h1 id="available" class="display-4 text-center my-5 text-muted">More Rooms</h1> %>
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">
@@ -122,7 +119,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Coming soon!</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
