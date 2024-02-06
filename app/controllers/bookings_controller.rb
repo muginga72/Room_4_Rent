@@ -37,8 +37,6 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-
-    debugger
     # Create a new booking with the submitted parameters
     @booking = Booking.new(booking_params)
 
