@@ -20,6 +20,18 @@ class RoomsController < ApplicationController
   def edit
   end
 
+  # def available
+  #   @available_room = Room.where(room_status: "available")
+  # end
+
+  # def bboked
+  #   @booked_room = Room.where(room_status: "booked")
+  # end
+
+  # def pending
+  #   @pending_room = Room.where(room_status: "pending")
+  # end
+
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(room_params)
@@ -63,6 +75,7 @@ class RoomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+      # @room = Room.find_by(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

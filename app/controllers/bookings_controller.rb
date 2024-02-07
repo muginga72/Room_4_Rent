@@ -3,37 +3,54 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    # Get all bookings for the current user
+    @room = Room.all
+    @bookings = current_user.bookings
   end
 
   # GET /bookings/1 or /bookings/1.json
   def show
+    # Check if the current user is the guest or the host of the booking
+    if current_user == @booking.guest_name || current_user == @booking.room
+
+      # Render the booking details
+      render :show
+    end
   end
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
+    # Initialize a new booking with the selected room and date
+    @booking = Booking.new(room_id: params[:room_id], check_in: params[:check_in], check_out: params[:check_out])
   end
 
   # GET /bookings/1/edit
   def edit
   end
 
+  # POST /bookings/new
+  def new_booking
+    @room = Room.find(params[:room].to_i)
+    @booking = Booking.new(room_id: @room)
+    render :new
+  end
+
   # POST /bookings or /bookings.json
   def create
-    @room = Room.all
+
+    debugger
+    # Create a new booking with the submitted parameters
     @booking = Booking.new(booking_params)
+
+    # Assign the current user as the guest
     @booking.user_id = current_user.id
-
-    respond_to do |format|
-      if @booking.save
-
-        format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
+    
+    # Save the booking and redirect to the confirmation page
+    if @booking.save
+      redirect_to booking_path(@booking), notice: "Your booking was successfully created."
+    else
+      # Render the new booking form with validation errors
+      render :new
     end
   end
 
@@ -52,10 +69,12 @@ class BookingsController < ApplicationController
 
   # DELETE /bookings/1 or /bookings/1.json
   def destroy
-    @booking.destroy!
+    # Find the booking by its id and destroy it
+    @booking = Booking.find(params[:id])
+    @booking.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: "Booking was successfully deleted." }
+      format.html { redirect_to bookings_url, notice: "Booking was successfully cancelled." }
       format.json { head :no_content }
     end
   end
@@ -63,17 +82,29 @@ class BookingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
-      @booking = Booking.find(params[:id])
+      # @booking = Booking.find(params[:id])
+      if params[:id].present? && params[:id].to_i > 0
+        @booking = Booking.find(params[:id])
+      else
+        redirect_to rooms_path, alert: "Invalid booking ID"
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(
-        :user_id, 
+      params.require(:booking).permit( 
         :room_id, 
         :check_in, 
         :check_out, 
         :guest_name
+      )
+    end
+
+    # the method is in the booking model
+    def overlapping_bookings?
+      Booking.exists?(room_id: @room.room_id).where.not(id: params[:id]).where(
+        '(? <= check_out) AND (check_in <= ?)', 
+        booking_params[:check_in], booking_params[:check_out]
       )
     end
 end

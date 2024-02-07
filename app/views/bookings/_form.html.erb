@@ -1,4 +1,4 @@
-<%= form_with(model: booking) do |form| %>
+<%= form_with(model: booking, data: { turbo: false }) do |form| %>
   <% if booking.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -11,32 +11,35 @@
     </div>
   <% end %>
 
-  <form>
-    <div class="form-group">
-   
-      <div class="field">
-        <%= form.label :room_address %> <br>
-        <%= form.collection_select :room_id, Room.all, :id, :room_address %> <br>
-      </div>
-   
-      <div>
-        <%= form.label :check_in, style: "display: block" %>
-        <%= form.date_field :check_in %>
-      </div>
-
-      <div>
-        <%= form.label :check_out, style: "display: block" %>
-        <%= form.date_field :check_out %>
-      </div>
-
-      <div>
-        <%= form.label :guest_name, style: "display: block" %>
-        <%= form.text_field :guest_name %>
-      </div>
-
-      <div style="margin-top: 20px;">
-        <%= form.submit class:"btn btn-success" %>
-      </div>
+  <div class="form-group">
+    <div>
+      <h5>Room address:</h5>
+      <!-- display the address in badge -->
+      <span class="badge rounded-pill bg-primary"> 
+        <%= room.room_address %>, <%= room.room_city%>, <%= room.room_state%> <%= room.room_zip%>
+      </span>  
     </div>
-  </form>
+
+    <div>
+      <%= form.label :check_in, style: "display: block" %>
+      <%= form.date_field :check_in %>
+    </div>
+
+    <div>
+      <%= form.label :check_out, style: "display: block" %>
+      <%= form.date_field :check_out %>
+    </div>
+
+    <div>
+      <%= form.label :guest_name, style: "display: block" %>
+      <%= form.text_field :guest_name %>
+    </div>
+      
+    <!-- creating hidden value for room id -->
+    <%= form.hidden_field(:room_id, value: room.id) %>
+
+    <div style="margin-top: 20px;">
+      <%= form.submit class:"btn btn-success" %>
+    </div>
+  </div>
 <% end %>
