@@ -1,7 +1,9 @@
 <!-- navbar for login page-->
 <nav class="navbar navbar-info bg-info fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#"><strong>R4R</strong></a>
+    <a class="navbar-brand text-white" href="#">
+      <%= image_tag "logo_r4r-v01.png", class:"rounded float-start" %>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,7 +16,7 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <%= link_to 'Logout', user_session_path(current_user.id), data: { turbo_method: :delete }, class: "dropdown-item" %><br>
+              <%= link_to 'Logout', user_session_path(current_user), data: { turbo_method: :delete }, class: "dropdown-item" %><br>
           </li>
 
           <li class="nav-item dropdown">
@@ -83,9 +85,10 @@
             <% @rooms.each do |room| %>
               <div class="col-sm-6 col-md-6 d-flex align-items-stretch" style="margin-left: 0px; margin-bottom: 30px">
                 <div class="card">
-                  <img class="card-img-top" alt="Room image">
+                  <%= image_tag "Bedroom-2.jpg" %>
+                  <%# <img class="card-img-top" alt="Room image"> %>
                   <div class="card-body">
-                    <h6 class="card-title">Room Info</h6>
+                    <%# <h6 class="card-title">Room Info</h6> %>
                       <ul class="list-inline">
                         <li>
                           <strong>Size</strong>: <%= room.room_size %>     |
@@ -130,7 +133,8 @@
     <div class="col-4">
       <h1 id="available" class="display-4 text-center my-5 text-muted">Booked Rooms</h1>
       <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+        <%= image_tag "Bedroom-5.jpg" %>
+        <%# <img src="..." class="card-img-top" alt="..."> %>
         <div class="card-body">
           <h5 class="card-title">Beautiful studio</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -148,11 +152,12 @@
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
+            <%= image_tag "Bedroom-1.jpg", class: "responsive" %>
+            <%# <img src="Bedroom-1" class="img-fluid rounded-start" alt="bedroom"> %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Coming soon!</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>

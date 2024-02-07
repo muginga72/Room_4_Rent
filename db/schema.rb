@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
   create_table "rooms", force: :cascade do |t|
     t.string "room_size"
     t.string "room_class"
-    t.string "room_status"
+    t.string "room_status", default: "available"
     t.string "room_address"
     t.string "room_city"
     t.string "room_state"
