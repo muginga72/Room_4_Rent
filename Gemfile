@@ -67,3 +67,5 @@ group :test do
 end
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'font-awesome-sass'

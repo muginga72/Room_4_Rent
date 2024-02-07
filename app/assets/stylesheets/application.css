@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
- @import "font-awesome";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @font-face {
   font-family: 'Canterbury';

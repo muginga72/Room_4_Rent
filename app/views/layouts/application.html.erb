@@ -43,12 +43,13 @@
                 Room
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light">
-                  <li><a class="dropdown-item" href="#">List rooms</a></li>
-                  <li><a class="dropdown-item" href="#new_room_path">Create Room</a></li>
+                  <%= link_to "List rooms", rooms_path, class: "dropdown-item" %>
+                  <%= link_to "Create room", new_room_path, class: "dropdown-item" %>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Book Room</a></li>
+
+                  <li><a class="dropdown-item" href="#">Editing Room</a></li>
                 </ul>
               </li>
 
@@ -57,12 +58,14 @@
                   Booking
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light">
-                  <li><a class="dropdown-item" href="#">List Booking</a></li>
-                  <li><a class="dropdown-item" href="#">Create Booking</a></li>
+                  <%= link_to "List bookings", bookings_path, class: "dropdown-item" %>
+
+                  <%= link_to "Book room", new_booking_path, class: "dropdown-item" %>
                   <li>
                   <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Book room</a></li>
+                  <li><a class="dropdown-item" href="#">Editing booking</a></li>
+                  
                 </ul>
               </li>
             </ul>
@@ -89,9 +92,10 @@
             
             <div style="display: flex; gap: 10px;" class="justify-content-sm-center">
               <div class="d-grid gap-2 d-sm-flex">
-                <button type="button" class="btn bsb-btn-2xl btn-success mb-4">Book Your Room</button>
+                <%= link_to "Book Your Room", new_booking_path, class: "btn bsb-btn-2xl btn-success mb-4" %>
               </div>
-              <div class="d-grid gap-2 d-sm-flex">
+              <%# <div class="d-grid gap-2 d-sm-flex"> %>
+              <div>
                 <button type="button" class="btn bsb-btn-2xl btn-success mb-4">Logout</button>
               </div>
             </div>

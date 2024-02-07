@@ -9,7 +9,7 @@
             <% @rooms.each do |room| %>
               <div class="col-sm-6 col-md-6 d-flex align-items-stretch" style="margin-left: 0px; margin-bottom: 30px">
                 <div class="card">
-                  <img src="..." class="card-img-top" alt="...">
+                  <img class="card-img-top" alt="Room image">
                   <div class="card-body">
                     <h6 class="card-title">Room Info</h6>
                       <ul class="list-inline">
@@ -37,7 +37,7 @@
                     <div class="card-footer">
                       <p>
                         <%= link_to "Show room", room, class: "btn btn-outline-primary" %> 
-                        <%= link_to "Book room", room, class: "btn btn-outline-success" %>
+                        <%= link_to "Book room", new_booking_path, class: "btn btn-outline-success" %>
                       </p>
                     </div>
                   </div>
