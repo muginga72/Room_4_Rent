@@ -3,9 +3,9 @@
 one:
   check_in: 2024-01-31
   check_out: 2024-01-31
-  guest_name: MyString
+  full_name: MyString
 
 two:
   check_in: 2024-01-31
   check_out: 2024-01-31
-  guest_name: MyString
+  full_name: MyString

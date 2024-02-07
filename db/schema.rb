@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_162446) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
   create_table "bookings", force: :cascade do |t|
     t.date "check_in"
     t.date "check_out"
-    t.string "guest_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
@@ -26,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_162446) do
   create_table "rooms", force: :cascade do |t|
     t.string "room_size"
     t.string "room_class"
-    t.string "room_status"
+    t.string "room_status", default: "available"
     t.string "room_address"
     t.string "room_city"
     t.string "room_state"
@@ -49,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_162446) do
     t.string "password_confirmation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "full_name"
   end
 
   add_foreign_key "bookings", "rooms"

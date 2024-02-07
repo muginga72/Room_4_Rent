@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # this route allow the user to create a new booking in the booking controoler
   get "bookings/:room/new", to: "bookings#new_booking", as: "new_room_booking"
 
+  get "/rooms/:id", to: "rooms#shows"
+
   root 'pages#index'
 
   resources :user_sessions, only: [:new, :create, :destroy]

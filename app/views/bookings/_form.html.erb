@@ -15,8 +15,8 @@
     <div>
       <h5>Room address:</h5>
       <!-- display the address in badge -->
-      <span class="badge rounded-pill bg-primary"> 
-        <%= room.room_address %>, <%= room.room_city%>, <%= room.room_state%> <%= room.room_zip%>
+      <span class="badge rounded-pill bg-success"> 
+        <%= booking.room.room_address %>, <%= booking.room.room_city%>, <%= booking.room.room_state%> <%= booking.room.room_zip%>
       </span>  
     </div>
 
@@ -29,14 +29,9 @@
       <%= form.label :check_out, style: "display: block" %>
       <%= form.date_field :check_out %>
     </div>
-
-    <div>
-      <%= form.label :guest_name, style: "display: block" %>
-      <%= form.text_field :guest_name %>
-    </div>
       
     <!-- creating hidden value for room id -->
-    <%= form.hidden_field(:room_id, value: room.id) %>
+    <%= form.hidden_field(:room_id, value: booking.room.id) %>
 
     <div style="margin-top: 20px;">
       <%= form.submit class:"btn btn-success" %>

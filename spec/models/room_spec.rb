@@ -1,17 +1,20 @@
 require 'rails_helper'
-
 RSpec.describe Room, type: :model do
-  it "has a valid factory" do
-    expect(FactoryBot.build(:room)).to be_valid
+  subject { Room.new(user_id: 1, room_size: "200", room_class: "studio", room_status: "Available", room_address: "123 Main St",
+    room_city: "South Portland", room_state: "Maine", room_country: "United States", room_price: 100.0, room_description: "nice room", number_of_beds: 4, bed_size: "Twin XL"
+  )}
+
+  it "is valid with valid attributes" do
+    expect(subject).to be_valid
   end
 
-  it "is invalid without a room_size" do
-    expect(FactoryBot.build(:room, room_size: nil)).not_to be_valid
+  it "is not valid without a room_address" do
+    subject.room_address=nil
+    expect(subject).to_not be_valid
   end
 
-  # add more validations tests for other attributes as needed
-
-  it "belongs to a user" do
-    expect(FactoryBot.build(:room)).to belong_to(:user)
+  it "is not valid without a city" do
+    subject.room_city=nil
+    expect(subject).to_not be_valid
   end
 end

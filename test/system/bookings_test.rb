@@ -16,7 +16,7 @@ class BookingsTest < ApplicationSystemTestCase
 
     fill_in "Check in", with: @booking.check_in
     fill_in "Check out", with: @booking.check_out
-    fill_in "Guest name", with: @booking.guest_name
+    fill_in "Guest name", with: @booking.full_name
     click_on "Create Booking"
 
     assert_text "Booking was successfully created"
@@ -29,7 +29,7 @@ class BookingsTest < ApplicationSystemTestCase
 
     fill_in "Check in", with: @booking.check_in
     fill_in "Check out", with: @booking.check_out
-    fill_in "Guest name", with: @booking.guest_name
+    fill_in "Guest name", with: @booking.full_name
     click_on "Update Booking"
 
     assert_text "Booking was successfully updated"

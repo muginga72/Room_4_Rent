@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :user_id, :room_id, :check_in, :check_out, :guest_name, presence: true
+  validates :user_id, :room_id, :check_in, :check_out, presence: true
 
   validate :room_availability
 
@@ -18,6 +18,10 @@ class Booking < ApplicationRecord
   def rooms
     room.room_address
   end
+
+  # def fullname
+  #   @user.full_name
+  # end
 
   def guest_picture
 

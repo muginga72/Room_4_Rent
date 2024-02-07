@@ -20,18 +20,6 @@ class RoomsController < ApplicationController
   def edit
   end
 
-  # def available
-  #   @available_room = Room.where(room_status: "available")
-  # end
-
-  # def bboked
-  #   @booked_room = Room.where(room_status: "booked")
-  # end
-
-  # def pending
-  #   @pending_room = Room.where(room_status: "pending")
-  # end
-
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(room_params)

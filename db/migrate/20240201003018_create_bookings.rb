@@ -3,7 +3,7 @@ class CreateBookings < ActiveRecord::Migration[7.1]
     create_table :bookings do |t|
       t.date :check_in
       t.date :check_out
-      t.string :guest_name
+      t.string :full_name
 
       t.timestamps
     end
