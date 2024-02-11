@@ -27,11 +27,6 @@
             <ul class="dropdown-menu dropdown-menu-light">
               <%= link_to "List rooms", rooms_path, class: "dropdown-item" %>
               <%= link_to "Create room", new_room_path, class: "dropdown-item" %>
-            <!--
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Editing Room</a></li> -->
             </ul>
           </li>
 
@@ -41,12 +36,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-light">
               <%= link_to "List bookings", bookings_path, class: "dropdown-item" %>
-            <!--
-              <%= link_to "Book room", new_booking_path, class: "dropdown-item" %>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Editing booking</a></li> -->
             </ul>
           </li>
         </ul>
@@ -87,31 +76,29 @@
             <% @rooms.each do |room| %>
               <div class="col-sm-6 col-md-6 d-flex align-items-stretch" style="margin-left: 0px; margin-bottom: 30px">
                 <div class="card">
-                  <%= image_tag "Bedroom-2.jpg" %>
-                  <%# <img class="card-img-top" alt="Room image"> %>
+                  <%= image_tag "Bedroom-2.jpg", class: "rounded-top"%>
                   <div class="card-body">
-                    <%# <h6 class="card-title">Room Info</h6> %>
-                      <ul class="list-inline">
-                        <li>
-                          <strong>Size</strong>: <%= room.room_size %>     |
-                          <strong>Class</strong>: <%= room.room_class %>    |
-                          <strong>Pice</strong>: $<%= room.room_price %>    |
-                          <strong>Status</strong>: <%= room.room_status %>     |
-                          <strong>Number of Beds</strong>: <%= room.number_of_beds %>     |
-                          <strong>Bed Size</strong>: <%= room.bed_size %>     |
-                          <strong>Smoke</strong>: <%= room.room_smoke %>
-                        </li>
-                      </ul>
-                      <address>
-                        <h6>Address</h6>
-                        <%= room.room_address %>, <%= room.room_city %>,<br> 
-                        <%= room.room_state %>, <%= room.room_zip %>, <%= room.room_country %><br>
-                      </address>
+                    <ul class="list-inline">
+                      <li>
+                        <strong>Size</strong>: <%= room.room_size %>     |
+                        <strong>Class</strong>: <%= room.room_class %>    |
+                        <strong>Pice</strong>: $<%= room.room_price %>    |
+                        <strong>Status</strong>: <%= room.room_status %>     |
+                        <strong>Number of Beds</strong>: <%= room.number_of_beds %>     |
+                        <strong>Bed Size</strong>: <%= room.bed_size %>     |
+                        <strong>Smoke</strong>: <%= room.room_smoke %>
+                      </li>
+                    </ul>
+                    <address>
+                      <h6>Address</h6>
+                      <%= room.room_address %>, <%= room.room_city %>,<br> 
+                      <%= room.room_state %>, <%= room.room_zip %>, <%= room.room_country %><br>
+                    </address>
 
-                      <h6 class="card-title">Description </h6>
-                      <blockquote>
-                        <p><%= room.room_description %></p>
-                      </blockquote>
+                    <h6 class="card-title">Description </h6>
+                    <blockquote>
+                      <p><%= room.room_description %></p>
+                    </blockquote>
                     </div>
                     <div class="card-footer">
                       <p>
@@ -135,8 +122,7 @@
     <div class="col-4">
       <h1 id="available" class="display-4 text-center my-5 text-muted">Booked Rooms</h1>
       <div class="card">
-        <%= image_tag "Bedroom-5.jpg" %>
-        <%# <img src="..." class="card-img-top" alt="..."> %>
+        <%= image_tag "Bedroom-5.jpg", class: "rounded-top" %>
         <div class="card-body">
           <h5 class="card-title">Beautiful studio</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -150,7 +136,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <%# <h1 id="available" class="display-4 text-center my-5 text-muted">More Rooms</h1> %>
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">

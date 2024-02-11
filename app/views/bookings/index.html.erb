@@ -29,11 +29,6 @@
             <ul class="dropdown-menu dropdown-menu-light">
               <%= link_to "List rooms", rooms_path, class: "dropdown-item" %>
               <%= link_to "Create room", new_room_path, class: "dropdown-item" %>
-              
-              <!--<li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Editing Room</a></li> -->
             </ul>
           </li>
 
@@ -43,11 +38,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-light">
               <%= link_to "List bookings", bookings_path, class: "dropdown-item" %>
-            <!--  
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Editing booking</a></li>-->
             </ul>
           </li>
         </ul>
@@ -89,16 +79,12 @@
             <th>City</th>
             <th>Check In</th>
             <th>Check Out</th>
-            <%# <th>Night(s)</th> %>
-            <%# <th>Name</th>
-            <th>Picture</th> %>
             <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
           <% @bookings.each do |booking| %> <!-- Loop through the bookings -->
             <tr>
-              <%# <td><%= icon("fa-regular", "user") %></td>
               <td><%= booking.rooms %></td> <!-- rooms method allow the booking to access the room_address -->
               <td><%= booking.city  %></td> <!-- city method allow the booking to access the room_city -->
               <td><%= booking.check_in %></td> 

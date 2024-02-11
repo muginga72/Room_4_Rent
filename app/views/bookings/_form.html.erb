@@ -9,15 +9,15 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
 
   <div class="form-group">
     <div>
       <h5>Room address:</h5>
-      <!-- display the address in badge -->
+      <!-- display the full address in badge -->
       <span class="badge rounded-pill bg-success"> 
-        <%= booking.room.room_address %>, <%= booking.room.room_city%>, <%= booking.room.room_state%> <%= booking.room.room_zip%>
-      </span>  
+        <%= booking.room.room_address %>, <%= booking.room.room_city%>, <%= booking.room.room_state%> <%= booking.room.room_zip %>
+      </span> 
     </div>
 
     <div>
@@ -30,7 +30,7 @@
       <%= form.date_field :check_out %>
     </div>
       
-    <!-- creating hidden value for room id -->
+    <!-- creating hidden value for room id associated with booked room -->
     <%= form.hidden_field(:room_id, value: booking.room.id) %>
 
     <div style="margin-top: 20px;">

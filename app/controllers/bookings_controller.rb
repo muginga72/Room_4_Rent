@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1 or /bookings/1.json
   def show
-
   end
 
   # GET /bookings/new
@@ -26,7 +25,7 @@ class BookingsController < ApplicationController
   # POST /bookings/new
   def new_booking
     @room = Room.find(params[:room].to_i)
-    @booking = Booking.new(room_id: @room)
+    @booking = Booking.new(room_id: @room.id)
     render :new
   end
 
@@ -75,7 +74,6 @@ class BookingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
-      # @booking = Booking.find(params[:id])
       if params[:id].present? && params[:id].to_i > 0
         @booking = Booking.find(params[:id])
       else

@@ -11,75 +11,72 @@
     </div>
   <% end %>
   <div class="container-fluid">
-    <%# <div style="display: flex; gap: 10px"> %>
-      <div>
-        <%= form.label :room_size, style: "display: block" %>
-        <%= form.text_field :room_size, placeholder: "220 sf" %>
-      </div>
+    <div>
+      <%= form.label :room_size, style: "display: block" %>
+      <%= form.text_field :room_size, placeholder: "220 sf" %>
+    </div>
 
-      <div>
-        <%= form.label :room_class, style: "display: block" %>
-        <%= form.text_field :room_class, placeholder: "studio, double, queen, ..." %>
-      </div>
+    <div>
+      <%= form.label :room_class, style: "display: block" %>
+      <%= form.text_field :room_class, placeholder: "studio, double, queen, ..." %>
+    </div>
 
-      <div>
-        <%= form.label :room_status, style: "display: block" %>
-        <%= form.text_field :room_status %>
-      </div>
+    <div>
+      <%= form.label :room_status, style: "display: block" %>
+      <%= form.text_field :room_status %>
+    </div>
 
-      <div>
-        <%= form.label :room_address, style: "display: block" %>
-        <%= form.text_field :room_address, placeholder: "123 Main St" %>
-      </div>
+    <div>
+      <%= form.label :room_address, style: "display: block" %>
+      <%= form.text_field :room_address, placeholder: "123 Main St" %>
+    </div>
 
-      <div>
-        <%= form.label :room_city, style: "display: block" %>
-        <%= form.text_field :room_city %>
-      </div>
+    <div>
+      <%= form.label :room_city, style: "display: block" %>
+      <%= form.text_field :room_city %>
+    </div>
 
-      <div>
-        <%= form.label :room_state, style: "display: block" %>
-        <%= form.text_field :room_state %>
-      </div>
+    <div>
+      <%= form.label :room_state, style: "display: block" %>
+      <%= form.text_field :room_state %>
+    </div>
 
-      <div>
-        <%= form.label :room_zip, style: "display: block" %>
-        <%= form.text_field :room_zip %>
-      </div>
+    <div>
+      <%= form.label :room_zip, style: "display: block" %>
+      <%= form.text_field :room_zip %>
+    </div>
 
-      <div>
-        <%= form.label :room_country, style: "display: block" %>
-        <%= form.text_field :room_country %>
-      </div>
+    <div>
+      <%= form.label :room_country, style: "display: block" %>
+      <%= form.text_field :room_country %>
+    </div>
 
-      <div>
-        <%= form.label :room_price, style: "display: block" %>
-        <%= form.text_field :room_price %>
-      </div>
+    <div>
+      <%= form.label :room_price, style: "display: block" %>
+      <%= form.text_field :room_price %>
+    </div>
 
-      <div>
-        <%= form.label :room_smoke, style: "display: block" %>
-        <%= form.check_box :room_smoke %>
-      </div>
+    <div>
+      <%= form.label :room_smoke, style: "display: block" %>
+      <%= form.check_box :room_smoke %>
+    </div>
 
-      <div>
-        <%= form.label :number_of_beds, style: "display: block" %>
-        <%= form.number_field :number_of_beds %>
-      </div>
+    <div>
+      <%= form.label :number_of_beds, style: "display: block" %>
+      <%= form.number_field :number_of_beds %>
+    </div>
 
-      <div>
-        <%= form.label :bed_size, style: "display: block" %>
-        <%= form.text_field :bed_size, placeholder: "Twin, Twin XL, ..." %>
-      </div>
+    <div>
+      <%= form.label :bed_size, style: "display: block" %>
+      <%= form.text_field :bed_size, placeholder: "Twin, Twin XL, ..." %>
+    </div>
 
-      <div>
-        <%= form.label :room_description, style: "display: block" %>
-        <%= form.text_area :room_description %>
-      </div>
+    <div>
+      <%= form.label :room_description, style: "display: block" %>
+      <%= form.text_area :room_description %>
     </div>
 
     <div>
       <%= form.submit class: "btn btn-outline-success m-4" %>
     </div>
   <% end %>
-<%# </div> %>
