@@ -3,9 +3,6 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    # Get all bookings for the current user
-    @room = Room.all
-    @bookings = current_user.bookings
   end
 
   # GET /bookings/1 or /bookings/1.json

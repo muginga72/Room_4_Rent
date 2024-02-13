@@ -3,7 +3,18 @@ class RoomsController < ApplicationController
 
   # GET /rooms or /rooms.json
   def index
-    @rooms = Room.all
+    if !params["check_in"] || !params["check_out"]
+      @rooms = Room.all
+    else
+      # will transform the string to date using parse
+      check_in_date = params["check_in"]
+      check_out_date = params["check_out"]
+      
+      # joins the rooms to the bookings.
+      # we want the rooms they are not having check_in less than check_out_date
+      # and check_out greather than the check_in_date 
+      @rooms = Room.joins(:bookings).where.not("bookings.check_in < ? AND bookings.check_out > ?", check_out_date, check_in_date)
+    end
   end
 
   # GET /rooms/1 or /rooms/1.json
