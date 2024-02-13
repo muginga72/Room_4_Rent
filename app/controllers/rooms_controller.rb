@@ -14,6 +14,9 @@ class RoomsController < ApplicationController
       # we want the rooms they are not having check_in less than check_out_date
       # and check_out greather than the check_in_date 
       @rooms = Room.joins(:bookings).where.not("bookings.check_in < ? AND bookings.check_out > ?", check_out_date, check_in_date)
+      
+      # redirect to rooms_path if @rooms is empty
+      redirect_to rooms_path if @rooms.empty?
     end
   end
 
