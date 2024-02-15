@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "User created successfully"
+      session[:user_id] = @user.id # store the user's id in the session
       redirect_to rooms_path
     else
       flash[:alert] = "User not created"

@@ -4,12 +4,12 @@
     <h1 id="editing_booking" class="display-4 text-center my-3 text-muted">Booking details</h1>
 
     <%= render @booking %>
-
+    
     <div>
-      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "btn btn-outline-success" %> |
-      <%= link_to "Back to bookings", bookings_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "btn btn-outline-success mb-5" %> 
+      <%= link_to "Back to bookings", bookings_path, class: "btn btn-outline-primary mb-5" %> <br>
 
-      <%= button_to "Delete booking", @booking, method: :delete, class: "btn btn-outline-danger mt-5 mb-3" %>
+      <!--<%= button_to "Delete booking", @booking, method: :delete, class: "btn btn-outline-danger mt-5 mb-3" %> -->
     </div>
   </div>
 </div>

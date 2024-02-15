@@ -4,12 +4,12 @@
   <div class="container">
   <h1 id="list_users" class="display-4 text-center text-muted">Room Detalis</h1>
 
-  <%= render @room %>
+  <%= render @room, partial: 'shared/deleteModal' %>
 
   <div style="margin-bottom: 20px;">
     <%= link_to "Edit room", edit_room_path(@room), class: "btn btn-outline-success", style: "margin-bottom: 20px;" %> 
     <%= link_to "Back to rooms", rooms_path, class: "btn btn-outline-primary", style: "margin-bottom: 20px;"  %>
 
-    <%= button_to "Delete room", @room, method: :delete, class: "btn btn-outline-danger", style: "margin-bottom: 20px;" %>
+    <%= button_to "Delete room", @room, method: :delete, class: "btn btn-outline-danger", style: "margin-bottom: 20px;", data: { toggle: "modal", target: "#deleteModal" } %>
   </div>
 </div>
