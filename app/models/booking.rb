@@ -6,6 +6,9 @@ class Booking < ApplicationRecord
 
   validate :room_availability
 
+  # user can only display their bookings
+  scope :by_user, -> (user) { where(user_id: user.id) }
+
   # define the rooms method for the Booking object
   def status
     room.room_status

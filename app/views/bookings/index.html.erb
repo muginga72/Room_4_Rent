@@ -38,6 +38,9 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-light">
               <%= link_to "List bookings", bookings_path, class: "dropdown-item" %>
+              
+              <!-- this will show only the bookings of the current user -->
+              <%= link_to "My bookings", bookings_path(user: true), class: "dropdown-item" %>
             </ul>
           </li>
         </ul>

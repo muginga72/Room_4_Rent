@@ -16,7 +16,13 @@ class RoomsController < ApplicationController
       # and check_out greather than the check_in_date
       @rooms = Room.where("NOT EXISTS (:bookings)", bookings: Booking.select("1").where(
         "bookings.room_id = rooms.id AND bookings.check_in < ? AND bookings.check_out > ?", check_out_date, check_in_date))
+    
+      # redirect to rooms_path if @rooms is empty
+      redirect_to rooms_path if @rooms.empty?
     end
+    
+    # In the controller, get the bookings for the current user
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   # GET /rooms/1 or /rooms/1.json

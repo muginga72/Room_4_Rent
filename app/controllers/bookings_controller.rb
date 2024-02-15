@@ -3,7 +3,11 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    if params[:user] # if the user parameter is present and true
+      @bookings = Booking.by_user(current_user) # show only the bookings of the current user
+    else
+      @bookings = Booking.all # show all the bookings
+    end
   end
 
   # GET /bookings/1 or /bookings/1.json
