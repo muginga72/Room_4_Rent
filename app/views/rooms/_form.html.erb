@@ -10,65 +10,76 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid">
-    <div>
+  <div class="container-fluid" style = "margin-botton: 20px">
+    <div class="mb-2">
       <%= form.label :room_size, style: "display: block" %>
       <%= form.text_field :room_size, placeholder: "220 sqft" %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_class, style: "display: block" %>
-      <%= form.text_field :room_class, placeholder: "studio, double, queen, ..." %>
+      <!--<%= form.text_field :room_class, placeholder: "studio, double, queen, ..." %>-->
+      <%= form.select :room_class, ["Single", "Double", "Triple", "Qadruple", "Standard", "Superior", "Delux", "Suite", "Presidential Suite" ] %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_status, style: "display: block" %>
-      <%= form.text_field :room_status %>
+      <!--<%= form.text_field :room_status %> -->
+      <%= form.select :room_status, ["Available", "Booked", "Coming soon"] %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_address, style: "display: block" %>
       <%= form.text_field :room_address, placeholder: "123 Main St" %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_city, style: "display: block" %>
       <%= form.text_field :room_city %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_state, style: "display: block" %>
-      <%= form.text_field :room_state %>
+      <%= form.select :room_state, [ "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", 
+        "ID", "IL", "IL", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE",
+        "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", 
+        "UT", "VT", "VA", "WA", "WV", "WI", "WY" ] %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_zip, style: "display: block" %>
       <%= form.text_field :room_zip %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_country, style: "display: block" %>
       <%= form.text_field :room_country %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_price, style: "display: block" %>
       <%= form.text_field :room_price %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :room_smoke, style: "display: block" %>
-      <%= form.check_box :room_smoke %>
+      <%= form.select :room_smoke, ["No Smoking", "Smoke"] %>
     </div>
 
-    <div>
-      <%= form.label :number_of_beds, style: "display: block" %>
-      <%= form.number_field :number_of_beds %>
+    <div class="mb-2">
+      <!--<%= form.label :number_of_beds, style: "display: block" %>
+      <%= form.number_field :number_of_beds %>-->
+      <%= form.label :numbers_of_beds, style: "display: block" %>
+      <% (1..4).each do |n| %>
+      <%= form.check_box :numbers_of_beds, {multiple: true}, n, nil %>
+      <%= form.label "numbers_#{n}", n %>
+      <% end %>
     </div>
 
-    <div>
+    <div class="mb-2">
       <%= form.label :bed_size, style: "display: block" %>
-      <%= form.text_field :bed_size, placeholder: "Twin, Twin XL, ..." %>
+      <!-- <%= form.text_field :bed_size, placeholder: "Twin, Twin XL, ..." %> -->
+      <%= form.select :bed_size, ["Twin or Single", "Twin XL", "Full or Double", "Full XL", "Queen", "Olympic Queen", "King", "California King"] %>
     </div>
 
     <div>
