@@ -81,7 +81,6 @@
   </div>
 </div> <!-- /filter the room based on the availability -->
 
-<%# <p style="color: green"><%= notice %></p>
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
@@ -152,7 +151,14 @@
         </div>
         <% end %>
       <% else %>
-        <p class="btn btn-primary" style="margin: 40px"> No preview booking!</p>
+        <div class="card">
+        <%= image_tag "Bedroom-5.jpg", class: "rounded-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Beautiful studio</h5>
+          <p class="card-text"> Whether you’re a working professional or a student, this room offers a peaceful retreat after a busy day.</p>
+          <%= link_to "Check this one!", rooms_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
     <% end %>
     </div><!-- /booked rooms session -->
   </div>
