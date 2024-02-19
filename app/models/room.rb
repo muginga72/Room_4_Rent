@@ -4,6 +4,9 @@ class Room < ApplicationRecord
 
   validates :room_address, presence: true
   
+  # Add the 'booked' attribute
+  attribute :booked, :boolean, default: false
+  
   private
 
   def room_availability
