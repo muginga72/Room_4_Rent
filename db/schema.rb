@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
   create_table "rooms", force: :cascade do |t|
     t.string "room_size"
     t.string "room_class"
-    t.string "room_status", default: "available"
+    t.string "room_status", default: "Available"
     t.string "room_address"
     t.string "room_city"
     t.string "room_state"
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
     t.string "room_country"
     t.float "room_price"
     t.string "room_description"
-    t.boolean "room_smoke"
+    t.boolean "room_smoke", default: false
     t.integer "number_of_beds"
     t.string "bed_size"
     t.datetime "created_at", null: false
