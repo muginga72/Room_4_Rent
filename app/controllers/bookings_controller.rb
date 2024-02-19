@@ -41,6 +41,7 @@ class BookingsController < ApplicationController
     
     # Save the booking and redirect to the confirmation page
     if @booking.save
+      @booking.room.update(booked: true) # Mark the room as booked
       redirect_to booking_path(@booking), notice: "Your booking was successfully created."
     else
       # Render the new booking form with validation errors
