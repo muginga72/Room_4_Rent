@@ -4,7 +4,8 @@ class RoomsController < ApplicationController
   # GET /rooms or /rooms.json
   def index
     @room = Room.find_by(params[:id]) # Or however you retrieve the room
-    # Get all bookings for the current user    
+    # Get all bookings for the current user 
+    @bookings = Booking.where(user_id: current_user.id) # set booking to display it under booked  
     if !params["check_in"] || !params["check_out"]
       @rooms = Room.all 
     else

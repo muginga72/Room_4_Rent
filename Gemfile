@@ -75,3 +75,5 @@ gem 'factory_bot_rails'
 gem 'faker'
 gem 'rails-controller-testing'
 gem 'rexml'
+
+gem "sassc-rails", "~> 2.1"
