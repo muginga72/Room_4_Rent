@@ -1,0 +1,14 @@
+<div id="new_booking" class="pages_index_background">
+  <div class="container">
+    <h1 id="edit_comment" class="display-4 text-center my-0 text-muted">Editing Comment</h1>
+
+    <%= render "form", comment: @comment %>
+
+    <br>
+
+    <div>
+      <%= link_to "Show this comment", @comment, class: "btn btn-outline-primary" %> |
+      <%= link_to "Back to comments", comments_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>

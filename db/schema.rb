@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_20_154538) do
   create_table "bookings", force: :cascade do |t|
     t.date "check_in"
     t.date "check_out"
@@ -22,10 +22,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_comments_on_room_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "room_size"
     t.string "room_class"
-    t.string "room_status", default: "Available"
+    t.string "room_status", default: "available"
     t.string "room_address"
     t.string "room_city"
     t.string "room_state"
@@ -33,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
     t.string "room_country"
     t.float "room_price"
     t.string "room_description"
-    t.boolean "room_smoke", default: false
+    t.boolean "room_smoke"
     t.integer "number_of_beds"
     t.string "bed_size"
     t.datetime "created_at", null: false
@@ -53,5 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_200939) do
 
   add_foreign_key "bookings", "rooms"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "rooms"
+  add_foreign_key "comments", "users"
   add_foreign_key "rooms", "users"
 end

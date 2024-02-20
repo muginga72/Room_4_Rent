@@ -128,6 +128,10 @@
                     <blockquote>
                       <p><%= room.room_description %></p>
                     </blockquote>
+
+                    <!-- add comment to specific room_id -->
+                    <%= link_to "Add Comment", new_comment_path, class: "no-underline" %>
+                    
                   </div>
                   <div class="card-footer">
                     <p>

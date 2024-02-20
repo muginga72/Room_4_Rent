@@ -69,6 +69,10 @@ input::placeholder {
   height: 80px;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
 .message-form {
   /*padding: 0px;*/
   margin-left: 0px;
