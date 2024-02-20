@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   # pages can manage the users model
   resources :pages do 
     resources :users

@@ -111,11 +111,8 @@
                     </address>
                     <div style="display: flex; space-between">
                       <h6 class="card-title">Description </h6>
-                      <% if room.booked %>
-                        <div style="background-color: #ae4c4c; color: white; border-radius: 8px; margin-left: 20px">
-                          <span class="badge badge-success">Booked</span>
-                        </div>
-                      <% elsif %>
+
+                      <% if room.room_status == "Available" %>
                         <div style="background-color: #75b798; color: white; border-radius: 8px; margin-left: 20px">
                           <span class="badge badge-secondary">Available</span>
                         </div>
@@ -128,6 +125,10 @@
                     <blockquote>
                       <p><%= room.room_description %></p>
                     </blockquote>
+
+                    <!-- add comment to specific room_id -->
+                    <%= link_to "Add Comment", new_comment_path, class: "no-underline" %>
+                    
                   </div>
                   <div class="card-footer">
                     <p>
@@ -157,7 +158,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= booking.room.room_description %></h5>
             <address>
-              <%= booking.room.room_address %>, <%= booking.room.room_city %>,<br> 
+              <%= booking.room.room_address %>, <%= booking.room.room_city %>, 
               <%= booking.room.room_state %><br>
             </address>
             <%= link_to "Check this one!", bookings_path(current_user), class: "btn btn-outline-primary" %>
@@ -167,14 +168,15 @@
       <% else %>
         <div class="card">
         <%= image_tag "Bedroom-5.jpg", class: "rounded-top" %>
-        <div class="card-body">
-          <h5 class="card-title">Beautiful studio</h5>
-          <p class="card-text">The room will be ready for occupancy soon, so keep an eye out for this fantastic opportunity!</p>
-          <%= link_to "Check this one!", bookings_path, class: "btn btn-outline-primary" %>
+          <div class="card-body">
+            <h5 class="card-title">Beautiful studio</h5>
+            <p class="card-text">The room will be ready for occupancy soon, so keep an eye out for this fantastic opportunity!</p>
+            <%= link_to "Check this one!", bookings_path, class: "btn btn-outline-primary" %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div><!-- /booked rooms session -->
+      <% end %>
+    </div><!-- /booked rooms session -->
+  </div>
 </div>
 
 <div class="container-fluid">
@@ -188,11 +190,11 @@
             </div>
           </div>
           <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Coming soon!</h5>
-              <p class="card-text">Whether you’re a working professional or a student, this room offers a peaceful retreat after a busy day. The room will be ready for occupancy soon!</p>
-              <%= link_to "Learn more!", rooms_path, class: "btn btn-outline-primary" %>
-            </div>
+              <div class="card-body">
+                <h5 class="card-title">Coming soon!</h5>
+                <p class="card-text">Whether you’re a working professional or a student, this room offers a peaceful retreat after a busy day. The room will be ready for occupancy soon!</p>
+                <%= link_to "Learn more!", rooms_path(current_user), class: "btn btn-outline-primary" %>
+              </div>
           </div>
         </div>
       </div>

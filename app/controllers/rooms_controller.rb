@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :set_room, only: %i[ show edit update destroy destroy_with_comments ]
 
   # GET /rooms or /rooms.json
   def index
     @room = Room.find_by(params[:id]) # Or however you retrieve the room
-    # Get all bookings for the current user    
+    # Get all bookings for the current user 
+    @bookings = Booking.where(user_id: current_user.id) # set booking to display it under booked  
     if !params["check_in"] || !params["check_out"]
       @rooms = Room.all 
     else
@@ -63,6 +64,14 @@ class RoomsController < ApplicationController
   end
 
   # DELETE /rooms/1 or /rooms/1.json
+  def destroy_with_comments
+    if (@room.comments.exists?)
+      @room.comments.destroy_all
+    end 
+    @room.destroy
+    redirect_to rooms_path 
+  end
+
   def destroy
     @room.destroy!
 
@@ -75,8 +84,8 @@ class RoomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
-      # @room = Room.find_by(id: params[:id])
+      # @room = Room.find(params[:id])
+      @room = Room.find_by(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

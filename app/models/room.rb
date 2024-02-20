@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :comments
 
   validates :room_address, presence: true
   

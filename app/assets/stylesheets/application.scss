@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import "font-awesome-sprockets";
 @import "font-awesome";
 
 @font-face {
@@ -67,6 +66,10 @@ input::placeholder {
 .footer {
   background-color: gray;
   height: 80px;
+}
+
+.no-underline {
+  text-decoration: none;
 }
 
 .message-form {
