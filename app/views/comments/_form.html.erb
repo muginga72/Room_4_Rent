@@ -16,6 +16,11 @@
     <%= form.text_area :body %>
   </div>
 
+  <!-- creating hidden value for room id and user id associated with commented room -->
+  <%= form.hidden_field(:room_id, value: comment.room_id) %>
+
+  <%= form.hidden_field(:user_id, value: comment.user_id) %>
+
   <div>
     <%= form.submit "Add Comment", class: "btn btn-outline-success" %>
   </div>

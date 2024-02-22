@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    @rooms = Room.all
     @comment = Comment.new
   end
 
@@ -21,11 +22,10 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    # @comment = Comment.new(comment_params)
-    @room = Room.find(params[:room_id])
-    @comment = @room.comments.build(comment_params)
-    @comment.user = current_user
-
+    @room = Room.find_by(params[:room_id]) # find the room by ID
+    @comment = @room.comments.build(comment_params) # associate the comment with the room
+    @comment.user_id = current_user.id
+  
     respond_to do |format|
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
