@@ -57,13 +57,15 @@
     <div id="comments">
       <% @comments.each do |comment| %>
         <%= render comment %>
+
+        <%= link_to "Add Comment", new_comment_path, class: "btn btn-outline-success mb-3"  %>
+
         <p>
-          <%= link_to "Show this comment", comment, class: "btn btn-outline-primary"  %>
+          <%= link_to "Show this comment", comment, class: "btn btn-outline-primary mb-5"  %>
+          <%= link_to "Back to rooms", rooms_path, class: "btn btn-outline-primary mb-5"  %>
         </p>
       <% end %>
     </div>
-
-    <%= link_to "Add Comment", new_comment_path, class: "btn btn-outline-success mb-5"  %>
   </div>
 </div>
 
