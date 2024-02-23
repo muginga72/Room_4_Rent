@@ -33,14 +33,17 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    # Create a new booking with the submitted parameters
-    @booking = Booking.new(booking_params)
-
-    # Assign the current user as the guest
-    @booking.user_id = current_user.id
+    @room = Room.find_by(params[:room_id])
+    if @room.owner == current_user
+      flash[:alert] = "You cannot book your own room."
+      redirect_to @room
+    elsif
+      @booking = Booking.new(booking_params) # Create a new booking with the submitted parameters
+      
+      @booking.user_id = current_user.id # Assign the current user as the guest
     
     # Save the booking and redirect to the confirmation page
-    if @booking.save
+    elsif @booking.save
       @booking.room.update(booked: true) # Mark the room as booked
       redirect_to booking_path(@booking), notice: "Your booking was successfully created."
     else

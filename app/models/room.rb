@@ -7,6 +7,10 @@ class Room < ApplicationRecord
   
   # Add the 'booked' attribute
   attribute :booked, :boolean, default: false
+
+  def owner
+    user # Return the associated user (owner)
+  end
   
   private
 
