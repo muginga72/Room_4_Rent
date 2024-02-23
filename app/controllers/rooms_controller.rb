@@ -32,6 +32,10 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
+    unless @room.user == current_user
+      flash[:alert] = "You cannot edit someone else's room."
+      redirect_to rooms_path
+    end
   end
 
   # POST /rooms or /rooms.json
@@ -73,11 +77,15 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room.destroy!
+    if @room.user == current_user
+      @room.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to rooms_url, notice: "Room was successfully deleted." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to rooms_url, notice: "Room was successfully deleted." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to rooms_path
     end
   end
 
