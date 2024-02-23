@@ -104,8 +104,8 @@
               <td><%= booking.check_in %></td> 
               <td><%= booking.check_out %></td>
               <td><%= button_to 'Show', booking, method: :get, class: 'btn btn-outline-primary' %></td>
-              <!--<td><%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-outline-success' %></td> -->
-              <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal-<%= booking.id %>">Delete</button></td>
+            <!--<td><%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-outline-success' %></td> 
+              <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal-<%= booking.id %>">Delete</button></td> -->
             </tr>
             <%= render "deleteModal", booking: booking %>
           <% end %>

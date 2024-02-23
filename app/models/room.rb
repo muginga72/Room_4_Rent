@@ -1,10 +1,12 @@
 class Room < ApplicationRecord
+  attr_accessor :coming_soon # Define the coming_soon attribute
+
   belongs_to :user
   has_many :bookings
   has_many :comments
 
   validates :room_address, presence: true
-  
+
   # Add the 'booked' attribute
   attribute :booked, :boolean, default: false
 

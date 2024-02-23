@@ -34,21 +34,27 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @room = Room.find_by(params[:room_id])
+
     if @room.owner == current_user
       flash[:alert] = "You cannot book your own room."
-      redirect_to @room
-    elsif
-      @booking = Booking.new(booking_params) # Create a new booking with the submitted parameters
-      
-      @booking.user_id = current_user.id # Assign the current user as the guest
-    
-    # Save the booking and redirect to the confirmation page
-    elsif @booking.save
-      @booking.room.update(booked: true) # Mark the room as booked
-      redirect_to booking_path(@booking), notice: "Your booking was successfully created."
+      redirect_to rooms_path
+
+    elsif @room.coming_soon == "Coming soon" # check if the room its coming soon and prevent the booking
+      flash[:alert] = "This room is coming soon and cannot be booked yet."
+      redirect_to rooms_path
+
     else
-      # Render the new booking form with validation errors
-      render :new
+      @booking = Booking.new(booking_params) # create a new booking with the submitted parameters
+      @booking.user_id = current_user.id # assign the current user as the guest
+
+      if @booking.save # save the booking and redirect to the confirmation page
+        @booking.room.update(booked: true) # mark the room as booked
+        redirect_to booking_path(@booking), notice: "Your booking was successfully created."
+
+      else
+        flash[:error] = 'Error creating booking!'
+        render :new # render the new booking form with validation errors
+      end
     end
   end
 
@@ -78,14 +84,22 @@ class BookingsController < ApplicationController
   end
 
   private
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       if params[:id].present? && params[:id].to_i > 0
-        @booking = Booking.find(params[:id])
+        @booking = Booking.find_by(params[:id])
       else
         redirect_to rooms_path, alert: "Invalid booking ID"
       end
     end
+
+    # def set_booking
+    #   @booking = Booking.find_by_id(params[:id])
+    #   redirect_to bookings_path, alert: "Invalid booking ID" 
+    #     unless @booking
+    #   end
+    # end
 
     # Only allow a list of trusted parameters through.
     def booking_params
